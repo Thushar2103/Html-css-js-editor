@@ -12,5 +12,5 @@ HCJ Code Compiler is a powerful desktop application designed to streamline the d
 ### Real-Time Code Editor
 ![Code Editor](screenshots/screenshot1.png)
 
-### Live Preview
+### PIP Mode
 ![Live Preview](screenshots/screenshot2.png)
