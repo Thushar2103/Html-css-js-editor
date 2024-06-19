@@ -6,7 +6,6 @@ HCJ Code Compiler is a powerful desktop application designed to streamline the d
 ## Key Features
 - **Real-Time Code Editor:** Write, compile, and preview HTML, CSS, and JavaScript code instantly with dynamic WebView feedback.
 - **Comprehensive File Management:** Save projects with separate HTML, CSS, and JavaScript files, and easily open and edit existing projects.
-- **Responsive Design Testing:** Switch between PC and mobile viewports to ensure code renders correctly across various screen sizes.
 
 ## Screenshots
 
