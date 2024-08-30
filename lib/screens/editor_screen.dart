@@ -87,42 +87,33 @@ class _EditorScreenState extends State<EditorScreen> {
             ],
           ),
           actions: [
-            Row(
-              children: [
-                ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.deepOrangeAccent),
-                        foregroundColor:
-                            MaterialStatePropertyAll(Colors.white)),
-                    onPressed: _toggleDropdown,
-                    child: const Text('Snippet Suggest')),
-                const SizedBox(width: 8),
-                SizedBox(
-                  width: 150,
-                  child: TextField(
-                    controller: fileController,
-                    style: const TextStyle(fontSize: 12),
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text('Name'),
-                    ),
-                  ),
+            ElevatedButton(
+                style: const ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.deepOrangeAccent),
+                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
+                onPressed: _toggleDropdown,
+                child: const Text('Snippet Suggest')),
+            const SizedBox(width: 8),
+            SizedBox(
+              width: 150,
+              child: TextField(
+                controller: fileController,
+                style: const TextStyle(fontSize: 12),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  label: Text('Name'),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.save),
-                  onPressed: () => saveFile(
-                      htmlController.text,
-                      cssController.text,
-                      jsController.text,
-                      fileController.text,
-                      context),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.folder_open),
-                  onPressed: openFolder,
-                ),
-              ],
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.save),
+              onPressed: () => saveFile(htmlController.text, cssController.text,
+                  jsController.text, fileController.text, context),
+            ),
+            IconButton(
+              icon: const Icon(Icons.folder_open),
+              onPressed: openFolder,
             ),
           ],
         ),

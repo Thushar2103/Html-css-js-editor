@@ -23,10 +23,6 @@ class Layout3 extends StatefulWidget {
 class _Layout3State extends State<Layout3> {
   double _sideBoxHeight = 200;
   final double _minSideBoxHeight = 70.0;
-
-  double _htmlWidthFraction = 1 / 3;
-  double _cssWidthFraction = 1 / 3;
-  double _jsWidthFraction = 1 / 3;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -34,31 +30,34 @@ class _Layout3State extends State<Layout3> {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 0,
-          bottom: TabBar(tabs: [
-            Tab(
-              text: 'HTML',
-            ),
-            Tab(
-              text: 'CSS',
-            ),
-            Tab(
-              text: 'JavaScript',
-            )
-          ]),
+          bottom: const TabBar(
+              dividerColor: Colors.transparent,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorPadding: const EdgeInsets.symmetric(horizontal: 10),
+              indicator: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20)),
+                  color: Colors.black26),
+              tabs: [
+                Tab(
+                  text: 'HTML',
+                ),
+                Tab(
+                  text: 'CSS',
+                ),
+                Tab(
+                  text: 'JavaScript',
+                )
+              ]),
         ),
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-          double totalWidth = constraints.maxWidth;
-
-          double htmlWidth = totalWidth * _htmlWidthFraction;
-          double cssWidth = totalWidth * _cssWidthFraction;
-          double jsWidth = totalWidth * _jsWidthFraction;
-
           return Column(children: [
             SizedBox(
               height: _sideBoxHeight,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
                 child: TabBarView(
                   children: [
                     SizedBox(
@@ -100,7 +99,6 @@ class _Layout3State extends State<Layout3> {
                 ),
               ),
             ),
-            // if (!_isDropdownVisible)
             Flexible(
               flex: 2,
               child: Padding(
