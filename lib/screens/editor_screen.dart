@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:html_css_js/utils/code_compile.dart';
+import 'package:html_css_js/utils/layout_switch.dart';
 import 'package:html_css_js/widgets/layout1.dart';
 import 'package:html_css_js/widgets/layout2.dart';
 import 'package:html_css_js/widgets/layout3.dart';
@@ -20,6 +21,7 @@ class EditorScreen extends StatefulWidget {
 }
 
 class _EditorScreenState extends State<EditorScreen> {
+  final PageController _pageController = PageController();
   TextEditingController htmlController = TextEditingController();
   TextEditingController cssController = TextEditingController();
   TextEditingController jsController = TextEditingController();
@@ -87,6 +89,18 @@ class _EditorScreenState extends State<EditorScreen> {
             ],
           ),
           actions: [
+            IconButton(
+              icon: Icon(Icons.layers),
+              onPressed: () => switchLayout(0, _pageController),
+            ),
+            IconButton(
+              icon: Icon(Icons.code),
+              onPressed: () => switchLayout(1, _pageController),
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () => switchLayout(2, _pageController),
+            ),
             ElevatedButton(
                 style: const ButtonStyle(
                     backgroundColor:
@@ -117,12 +131,26 @@ class _EditorScreenState extends State<EditorScreen> {
             ),
           ],
         ),
-        body: Layout3(
-            htmlController: htmlController,
-            codecompile: handleCodeChange,
-            cssController: cssController,
-            jsController: jsController,
-            webviewController: webviewController),
+        body: PageView(controller: _pageController, children: [
+          Layout1(
+              htmlController: htmlController,
+              codecompile: handleCodeChange,
+              cssController: cssController,
+              jsController: jsController,
+              webviewController: webviewController),
+          Layout2(
+              htmlController: htmlController,
+              codecompile: handleCodeChange,
+              cssController: cssController,
+              jsController: jsController,
+              webviewController: webviewController),
+          Layout3(
+              htmlController: htmlController,
+              codecompile: handleCodeChange,
+              cssController: cssController,
+              jsController: jsController,
+              webviewController: webviewController),
+        ]),
         floatingActionButton: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
           child: FloatingActionButton.extended(
