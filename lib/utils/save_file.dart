@@ -29,7 +29,11 @@ Future<void> saveFile(String html, String css, String js, String fileName,
 
   await htmlFile.writeAsString(htmlContent);
   await cssFile.writeAsString(css);
-  await jsFile.writeAsString(js);
+  if (js == '') {
+    return;
+  } else {
+    await jsFile.writeAsString(js);
+  }
 
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

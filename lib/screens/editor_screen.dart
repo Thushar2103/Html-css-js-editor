@@ -3,6 +3,7 @@ import 'package:html_css_js/utils/code_compile.dart';
 import 'package:html_css_js/utils/layout_switch.dart';
 import 'package:html_css_js/utils/open_file.dart';
 import 'package:html_css_js/utils/save_file.dart';
+import 'package:html_css_js/utils/settings.dart';
 import 'package:html_css_js/widgets/layout1.dart';
 import 'package:html_css_js/widgets/layout2.dart';
 import 'package:html_css_js/widgets/layout3.dart';
@@ -74,29 +75,20 @@ class _EditorScreenState extends State<EditorScreen> {
       builder: (context, isFloating) => Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          title: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Tascuit'),
-              Text(
-                'Webcreate',
-                style: TextStyle(fontSize: 10),
-              ),
-            ],
+          title: GestureDetector(
+            onTap: () => settings(context, _pageController),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Tascuit'),
+                Text(
+                  'Webcreate',
+                  style: TextStyle(fontSize: 10),
+                ),
+              ],
+            ),
           ),
           actions: [
-            IconButton(
-              icon: const Icon(Icons.layers),
-              onPressed: () => switchLayout(0, _pageController),
-            ),
-            IconButton(
-              icon: const Icon(Icons.code),
-              onPressed: () => switchLayout(1, _pageController),
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () => switchLayout(2, _pageController),
-            ),
             ElevatedButton(
                 style: const ButtonStyle(
                     backgroundColor:
@@ -149,7 +141,7 @@ class _EditorScreenState extends State<EditorScreen> {
         ]),
         floatingActionButton: IconButton.filled(
             iconSize: 30,
-            onPressed: () {},
+            onPressed: () => PIPView.of(context)?.presentBelow(preview()),
             icon: const Icon(Icons.remove_red_eye_rounded)),
       ),
     );
