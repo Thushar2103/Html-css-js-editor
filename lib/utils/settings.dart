@@ -57,6 +57,10 @@ void settings(BuildContext context, PageController pageController) {
                       child: const Text('3'),
                       onPressed: () => switchLayout(2, pageController),
                     ),
+                    TextButton(
+                      child: const Text('4'),
+                      onPressed: () => switchLayout(3, pageController),
+                    ),
                   ],
                 ),
               ),

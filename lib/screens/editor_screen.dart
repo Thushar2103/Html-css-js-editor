@@ -7,6 +7,7 @@ import 'package:html_css_js/utils/settings.dart';
 import 'package:html_css_js/widgets/layout1.dart';
 import 'package:html_css_js/widgets/layout2.dart';
 import 'package:html_css_js/widgets/layout3.dart';
+import 'package:html_css_js/widgets/layout4.dart';
 import 'package:pip_view/pip_view.dart';
 import 'package:webview_windows/webview_windows.dart';
 
@@ -133,6 +134,12 @@ class _EditorScreenState extends State<EditorScreen> {
               jsController: jsController,
               webviewController: webviewController),
           Layout3(
+              htmlController: htmlController,
+              codecompile: handleCodeChange,
+              cssController: cssController,
+              jsController: jsController,
+              webviewController: webviewController),
+          Layout4(
               htmlController: htmlController,
               codecompile: handleCodeChange,
               cssController: cssController,
