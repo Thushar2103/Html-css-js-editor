@@ -11,15 +11,20 @@ void settings(BuildContext context, PageController pageController) {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton.filled(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.navigate_before)),
             const Text(
               "Settings",
               style: TextStyle(fontWeight: FontWeight.bold),
-            )
+            ),
+            TextButton(
+                style: const ButtonStyle(
+                    iconSize: WidgetStatePropertyAll(100),
+                    shape: WidgetStatePropertyAll(CircleBorder()),
+                    backgroundColor: WidgetStatePropertyAll(Colors.amber),
+                    foregroundColor: WidgetStatePropertyAll(Colors.black)),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('X')),
           ],
         ),
         content: SizedBox(
@@ -63,6 +68,14 @@ void settings(BuildContext context, PageController pageController) {
                     ),
                   ],
                 ),
+              ),
+              const ListTile(
+                dense: true,
+                title: Text(
+                  'Mail',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text('wetascuit@gmail.com'),
               ),
               const Spacer(),
               const Center(

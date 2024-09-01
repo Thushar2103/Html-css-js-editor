@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:html_css_js/screens/editor_screen.dart';
+import 'package:html_css_js/screens/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -59,8 +60,8 @@ class _MyAppState extends State<MyApp> {
         title: 'Html Css Js',
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        themeMode: _themeMode,
+        // themeMode: _themeMode,
         debugShowCheckedModeBanner: false,
-        home: const EditorScreen());
+        home: const HomePage());
   }
 }

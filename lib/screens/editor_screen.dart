@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:html_css_js/utils/code_compile.dart';
-import 'package:html_css_js/utils/layout_switch.dart';
 import 'package:html_css_js/utils/open_file.dart';
 import 'package:html_css_js/utils/save_file.dart';
 import 'package:html_css_js/utils/settings.dart';
@@ -27,7 +26,7 @@ class _EditorScreenState extends State<EditorScreen> {
       TextEditingController(text: 'Untitled');
   late WebviewController webviewController;
   String compiledCode = '';
-  bool _isDropdownVisible = false;
+  // bool _isDropdownVisible = false;
   // bool _isDarkMode = false;
   Widget preview() {
     return Webview(webviewController);
@@ -35,12 +34,6 @@ class _EditorScreenState extends State<EditorScreen> {
 
   void handleCodeChange(String newCode) {
     compileCode();
-  }
-
-  void _toggleDropdown() {
-    setState(() {
-      _isDropdownVisible = !_isDropdownVisible;
-    });
   }
 
   @override
@@ -90,14 +83,14 @@ class _EditorScreenState extends State<EditorScreen> {
             ),
           ),
           actions: [
-            ElevatedButton(
-                style: const ButtonStyle(
-                    backgroundColor:
-                        MaterialStatePropertyAll(Colors.deepOrangeAccent),
-                    foregroundColor: MaterialStatePropertyAll(Colors.white)),
-                onPressed: _toggleDropdown,
-                child: const Text('Snippet Suggest')),
-            const SizedBox(width: 8),
+            // ElevatedButton(
+            //     style: const ButtonStyle(
+            //         backgroundColor:
+            //             MaterialStatePropertyAll(Colors.deepOrangeAccent),
+            //         foregroundColor: MaterialStatePropertyAll(Colors.white)),
+            //     onPressed: _toggleDropdown,
+            //     child: const Text('Snippet Suggest')),
+            // const SizedBox(width: 8),
             SizedBox(
               width: 150,
               child: TextField(
@@ -105,7 +98,7 @@ class _EditorScreenState extends State<EditorScreen> {
                 style: const TextStyle(fontSize: 12),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  label: Text('Name'),
+                  // label: Text('Name'),
                 ),
               ),
             ),

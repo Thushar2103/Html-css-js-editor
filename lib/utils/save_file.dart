@@ -17,7 +17,7 @@ Future<void> saveFile(String html, String css, String js, String fileName,
   String htmlContent = '''
     <html>
       <head>
-        <title></title>
+        <title>$fileName</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="script.js"></script>
       </head>

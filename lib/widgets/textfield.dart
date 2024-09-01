@@ -11,6 +11,7 @@ Widget textfield(TextEditingController textcontroller, String labelname,
       decoration: InputDecoration(
         labelStyle: const TextStyle(fontWeight: FontWeight.w900),
         labelText: labelname,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
         border: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(1)),
